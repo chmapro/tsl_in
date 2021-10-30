@@ -11,6 +11,6 @@ lib/libcal.a : lib/sub.o lib/add.o
 	ar rcs lib/libcal.a lib/sub.o lib/add.o
 	
 clean:
-	sudo rm -r lib/*.a
-	sudo rm -r lib/*.o
+	rm -r lib/*.a
+	rm -r lib/*.o
 

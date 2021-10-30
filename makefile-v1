@@ -1,0 +1,16 @@
+main-v1 : main.c lib/libcal.a
+	gcc $^ -o $@ -Iinclude -Llib -l cal
+	
+lib/add.o : src/add.c include/add.h
+	gcc -c $<  -o $@ -Iinclude
+	
+lib/sub.o : src/sub.c include/sub.h
+	gcc -c $<  -o $@ -Iinclude
+	
+lib/libcal.a : lib/sub.o lib/add.o
+	ar rcs lib/libcal.a $^
+	
+clean:
+	rm -r lib/*.a
+	rm -r lib/*.o
+
